@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <title>Twitter</title>
+    <style>
+    body {
+        font-family: Arial;
+    }
+    
+    header {
+        background-color: white;
+    }
+
+    header .fa {
+        font-size: 21px;
+    }
+
+    header a {
+        line-height: 46px;
+        height: 46px;
+        display: inline-block;
+        text-align: center;
+        color: rgb(102, 117, 127);
+    }
+
+    header .search {
+        display: inline-block;
+        height: 32px;
+        margin: 7px 15px 0 0;
+        font-size: 12px;
+        line-height: 1;
+        color: #292f33;
+        background-color: #f5f8fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 21px;
+        transition: all .2s ease-in-out;
+    }
+
+    header .search input {
+        background-color: transparent;
+        padding: 5px 27px 6px 12px;
+        border: none;
+        height: 32px;
+        outline: none;
+    }
+
+    header .search button {
+        background-color: transparent;
+        border: none;
+        color: #66757f;
+    }
+
+    header .search button .fa {
+        font-size: 13px;
+    }
+
+    header button {
+        height: 32px;
+        padding: 0 12px!important;
+    }
+
+    header button * {
+        line-height: 32px;
+    }
+
+    a.button {
+        text-decoration: none;
+        border-bottom: solid 4px transparent;
+        transition: border-bottom 0.2s, color 0.2s;
+        padding: 0px 9px;
+    }
+
+    a.button:hover {
+        border-bottom: solid 4px #0084B4;
+        color: #0084B4;
+    }
+
+    header .fa-twitter {
+        display: inline-block;
+        color: #55acee;
+        line-height: 46px;
+        position: absolute;
+        left: 50%;
+    }
+
+    .canopy {
+        margin-top: 46px;
+        height: 175px;
+        background-color: #0084B4;
+    }
+
+    .intro-banner {
+        background-color: white;
+        border-bottom: 1px solid #e1e8ed;
+    }
+
+    .intro-banner a {
+        display: inline-block;
+        height: 60px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: .02em;
+        color: #66757f;
+        padding-top: 10px;
+    }
+
+    .intro-banner a>span {
+        display: block;
+        font-size: 18px;
+        color: #0084b4;
+    }
+
+    .intro-banner button {
+        float: right;
+        margin-top: 12px;
+        padding: 9px 16px;
+        background-color: #f5f8fa;
+        background-image: linear-gradient(#fff, #f5f8fa);
+        border: 1px solid #e1e8ed;
+        font-size: 14px;
+        font-weight: bold;
+        color: #66757f;
+    }
+
+    .intro-banner button:hover {
+        background-color: #e1e8ed;
+        background-image: linear-gradient(#fff,#e1e8ed);
+    }
+
+    .intro-banner .user-logo {
+        position: absolute;
+        bottom: -87px;
+        width: 210px;
+        height: 210px;
+        border: 5px solid white;
+        border-radius: 12px;
+        background-color: #0084B4;
+    }
+
+    .main {
+        background-color: #f5f8fa!important;
+    }
+
+    .main a {
+        color: inherit;
+    }
+
+    .main h1 {
+        font-size: 22px;
+        font-weight: 700;
+        color: black;
+        margin-bottom: 0;
+    }
+
+    .main h2 {
+        color: #8899a6;
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    .main p {
+        font-size: 14px;
+    }
+
+    .main .fa {
+        font-size: 16px;
+        color: #8899a6;
+    }
+
+    .dashboard {
+        background-color: #fff;
+        background-color: #fff;
+        border: 1px solid #e1e8ed;
+        border-radius: 5px 5px 0 0;
+        margin-bottom: -1px;
+        padding: 0;
+    }
+
+    .dashboard .dashboard-header {
+        border-bottom: 1px solid #e1e8ed;
+    }
+
+    .dashboard .dashboard-header * {
+        margin-top: 0;
+        display: inline-block;
+        padding: 15px;
+        color: #0084B4;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1;
+    }
+
+    .dashboard .dashboard-header *.unclickable {
+        text-decoration: none;
+        color: #292f33;
+    }
+
+    .dashboard .tweet {
+        padding: 9px 12px;
+        border-bottom: 1px solid #e1e8ed;
+    }
+
+    .tweet>div {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .tweet .content {
+        width: 480px;
+    }
+
+    .tweet h1 {
+        font-size: 14px;
+        color: #292f33;
+        margin-top: 0px;
+    }
+
+    .tweet small {
+        font-size: 13px;
+    }
+
+    .tweet p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .tweet .tweet-action-group {
+        display: block;
+        margin-left: 58px;
+    }
+
+    .tweet .tweet-action-group a {
+        display: inline-block;
+        width: 80px;
+        font-size: 16px;
+    }
+
+    .tweet .tweet-action-group .fa {
+        color: #ccd6dd;
+    }
+
+    .tweet .tweet-action-group .fa-reply:hover {
+        color: #0084B4;
+    }
+
+    .tweet .tweet-action-group .fa-retweet:hover {
+        color: #5c913b;
+    }
+
+    .tweet .tweet-action-group .fa-star:hover {
+        color: #ffac33;
+    }
+
+    .tweet .tweet-action-group .fa-ellipsis-h:hover {
+        color: #0084B4;
+    }
+
+    .extra .dashboard .dashboard-header a {
+        font-size: 12px;
+        padding: 0;
+    }
+
+    .extra .dashboard h1 {
+        display: inline-block;
+        font-size: 12px;
+    }
+
+    .extra .dashboard .fa {
+        color: #88c9f9;
+    }
+
+    .extra .dashboard button {
+        display: block;
+        margin-left: 48px;
+        padding: 3px 11px;
+        background-repeat: no-repeat;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+        background-color: #f5f8fa;
+        background-image: linear-gradient(#fff,#f5f8fa);
+    }
+
+    .extra .dashboard button:hover {
+        background-color: #e1e8ed;
+        background-image: linear-gradient(#fff,#e1e8ed);
+    }
+
+    .extra .dashboard button .fa {
+        color: #55acee;
+    }
+
+    </style>
+</head>
+<body>
+    <header class="navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <a class="button" href="###"><i class="fa fa-home"></i>
+                    <span class="hidden-xs">Home</span>
+                </a>
+                <a class="button" href="###"><i class="fa fa-bell"></i>
+                    <span class="hidden-xs">Notifications</span>
+                </a>
+                <a class="button" href="###"><i class="fa fa-envelope"></i>
+                    <span class="hidden-xs">Messages</span></a>
+                <i class="fa fa-twitter"></i>
+                <div style="float:right">
+                    <div class="search hidden-xs">
+                        <input type="text" placeholder="Search Twitter"></input>
+                        <button><i class="fa fa-search"></i></button>
+                    </div>
+                    <a href="###" style="margin-right: 15px;">
+                        <img src="img/avatar.png" style="width: 32px; height: 32px; border-radius: 4px;"></img>
+                    </a>
+                    <button class="btn btn-primary button">
+                        <i class="fa fa-pencil-square-o"></i>
+                        <span class="hidden-xs">Tweet</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid canopy">
+    </div>
+    <div class="container-fluid intro-banner">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="user-logo">
+                    <img src="img/user-logo.png"></img>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <a class="button" href="###" id="current-page">
+                    TWEETS
+                    <span style="color: #292f33;">
+                    4
+                    </span>
+                </a>
+                <a class="button" href="###">
+                    FOLLOWING
+                    <span>
+                    45
+                    </span>
+                </a>
+                <a class="button" href="###">
+                    FOLLOWERS
+                    <span>
+                    3
+                    </span>
+                </a>
+                <button class="btn button" href="###">
+                    Edit profile
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="container-fluid main">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-3" style="margin-top:10px;">
+                <h1>
+                    <a>Benjamin Shi</a>
+                </h1>
+                <h2>
+                    @
+                    <a>aiifabbf</a>
+                </h2>
+                <p>This man is too lazy to tell you anything.</p>
+                <p>
+                    <i class="fa fa-clock-o"></i> Joined April 2011
+                </p>
+            </div>
+            <div class="col-md-6 dashboard" style="margin-top: 10px;">
+                <div class="dashboard-header">
+                    <a class="unclickable" href="###">Tweets</a>
+                    <a href="###">Tweets & replies</a>
+                </div>
+
+                <div class="tweet">
+                    <div class="tweet-avatar">
+                        <a href="###" style="margin-right:10px">
+                            <img src="img/avatar-big.png" style="width: 48px; height: 48px; border-radius: 4px;"></img>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a><h1>Benjamin Shi</a> <small>@aiifabbf - <a>13 Apr 2011</a></small></h1>
+                        <p>Nononono!!!!!</p>
+                    </div>
+                    <div class="tweet-action-group"> 
+                        <a><i class="fa fa-reply"></i></a>
+                        <a><i class="fa fa-retweet"></i></a>
+                        <a><i class="fa fa-star"></i></a>
+                        <a><i class="fa fa-ellipsis-h"></i></a>
+                    </div>
+                </div>
+
+                <div class="tweet">
+                    <div class="tweet-avatar">
+                        <a href="###" style="margin-right:10px">
+                            <img src="img/avatar-big.png" style="width: 48px; height: 48px; border-radius: 4px;"></img>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a><h1>Benjamin Shi</a> <small>@aiifabbf - <a>11 Apr 2011</a></small></h1>
+                        <p>@PointerRoyden Who's gonna be named Pointer? It's such a special name...Fun~~But Royden's really a good name.</p>
+                    </div>
+                    <div class="tweet-action-group"> 
+                        <a><i class="fa fa-reply"></i></a>
+                        <a><i class="fa fa-retweet"></i></a>
+                        <a><i class="fa fa-star"></i></a>
+                        <a><i class="fa fa-ellipsis-h"></i></a>
+                    </div>
+                </div>
+
+                <div class="tweet">
+                    <div class="tweet-avatar">
+                        <a href="###" style="margin-right:10px">
+                            <img src="img/avatar-big.png" style="width: 48px; height: 48px; border-radius: 4px;"></img>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a><h1>Benjamin Shi</a> <small>@aiifabbf - <a>11 Apr 2011</a></small></h1>
+                        <p>Unfortunately, we've got another 8 exampapers...Why? I don't know and I don't wanna know...</p>
+                    </div>
+                    <div class="tweet-action-group"> 
+                        <a><i class="fa fa-reply"></i></a>
+                        <a><i class="fa fa-retweet"></i></a>
+                        <a><i class="fa fa-star"></i></a>
+                        <a><i class="fa fa-ellipsis-h"></i></a>
+                    </div>
+                </div>
+
+                <div class="tweet">
+                    <div class="tweet-avatar">
+                        <a href="###" style="margin-right:10px">
+                            <img src="img/avatar-big.png" style="width: 48px; height: 48px; border-radius: 4px;"></img>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a><h1>Benjamin Shi</a> <small>@aiifabbf - <a>11 Apr 2011</a></small></h1>
+                        <p>@PointerRoyden We've got 8 exampapers...For safety, i'll tweet with English.......</p>
+                    </div>
+                    <div class="tweet-action-group"> 
+                        <a><i class="fa fa-reply"></i></a>
+                        <a><i class="fa fa-retweet"></i></a>
+                        <a><i class="fa fa-star"></i></a>
+                        <a><i class="fa fa-ellipsis-h"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 extra" style="margin-top: 10px;">
+                <div class="dashboard">
+                    <div class="dashboard-header">
+                        <h1 class="unclickable">Who to follow</h1>
+                        ·<a>Refresh</a> ·<a>View all</a>
+                    </div>
+                    <div class="tweet">
+                        <a><img src="img/3m.jpeg"></a>
+                        <h1>3M<i class="fa fa-certificate"></i><small>@3M</small></h1>
+                        <i class="fa fa-close" style="float: right;"></i>
+                        <button><i class="fa fa-user-plus"></i><strong>Follow</strong></button>
+                    </div>
+                </div>
+                <div class="dashboard">
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>

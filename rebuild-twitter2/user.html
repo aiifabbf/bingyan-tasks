@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <script src="js/jquery.min.js"></script>
+    <title>欢迎来到 Twitter - 登录或注册</title>
+    <style>
+    /*
+    1.位置属性(position, top, right, z-index, display, float等)
+    2.大小(width, height, padding, margin)
+    3.文字系列(font, line-height, letter-spacing, color- text-align等)
+    4.背景(background, border等)
+    5.其他(animation, transition等)
+    */
+
+    /* layout rules 
+    Including the following ONLY:
+    [max-|min-]width
+    padding[-top|-right|-bottom|-left]
+    text-align
+    vertical-align
+    */
+
+    /* position rules
+    margin[-top|-right|-bottom|-left]
+    float
+
+
+    /* unified arguments start */
+    * {
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    /* unified arguments end */
+
+    /* layout widgets start */
+    @media screen and (min-width: 1236px) {
+        .container {
+            min-width: 1190px;
+        }
+    }
+
+    @media screen and (max-width: 1190px) {
+        .container {
+            min-width: 590px;
+        }
+    }
+
+    @media screen and (max-width: 936px) {
+        .element-hidden-sm {
+            display: none;
+        }
+    }
+
+    .container {
+        max-width: 890px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .frame {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* layout widgets end */
+
+    /* visible widgets GENERIC start */
+    body {
+        background-color: black;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        transition: all 1s ease-in-out;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+        background-color: white;
+    }
+
+    a {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    button {
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+    .tab {
+        display: inline-block;
+        text-align: center;
+        transition: all .15s ease-in-out;
+    }
+    /* visible widgets GENERIC end */
+
+    /* visible widgets SPECIFIC start */
+    header a {
+        line-height: 46px;
+        color: rgb(102, 117, 127);
+    }
+
+    header a:hover {
+        color: #55acee;
+    }
+
+    header a .fa {
+        color: rgb(102, 117, 127);
+    }
+
+    header .tab {
+        padding: 0 14px 0 14px; 
+    }
+
+    header .tab:hover {
+        line-height: 46px;
+        height: 46px;
+        text-decoration: none;
+        color: #55acee;
+        border-bottom: 4px solid #55acee;
+    }
+
+    header .tab .fa {
+        font-size: 21px;
+        color: rgb(85, 172, 238);
+    }
+
+    </style>
+</head>
+
+<body>
+    <header style="position: fixed; top: 0;">
+        <div class="container">
+            <div style="float: left">
+                <a class="tab" href="###">
+                    <i class="fa fa-twitter"></i>
+                    <span class="element-hidden-sm" style="margin-left: 5px">
+                        主页
+                    </span>
+                </a>
+                <a class="tab" href="###">
+                    <span class="element-hidden-sm">
+                        关于
+                    </span>
+                </a>
+            </div>
+            <div style="float: right; position: relative;">
+            </div>
+        </div>
+    </header>
+
+</body>
