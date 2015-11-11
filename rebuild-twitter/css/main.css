@@ -1,0 +1,125 @@
+body {
+    background-image: url("img/US_CA_6.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header {
+    background-color: white;
+}
+
+header .fa {
+    color: rgb(85, 172, 238);
+    font-size: 21px;
+}
+
+header a {
+    line-height: 46px;
+    height: 46px;
+    display: inline-block;
+    text-align: center;
+    color: rgb(102, 117, 127);
+}
+
+header a.button {
+    text-decoration: none;
+    color: rgb(102, 117, 127);
+    border-bottom: solid 4px transparent;
+    transition: border-bottom 0.2s;
+    padding: 0px 9px;
+}
+
+header a.button:hover {
+    border-bottom: solid 4px rgb(85, 172, 238);
+}
+
+.main {
+    margin-top: 117px;
+}
+
+.intro h1 {
+    color: white;
+    margin-top: 0px;
+}
+
+.intro p {
+    color: white;
+    font-size: 21px;
+    font-weight: 300;
+}
+
+form {
+    background-color: white;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 11px;
+}
+
+input {
+    padding: 4px;
+}
+
+label {
+    color: #8899a6;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.main .checkbox {
+    margin: 0px 0px;
+}
+
+.main .btn-primary {
+    background-color: #55acee;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.05));
+    border: 1px solid #3b88c3;
+}
+
+.main .btn-primary:hover {
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.15));
+}
+
+.main .btn-warning {
+    background-color: #ffac33;
+    background-image: linear-gradient(#ffcc4d,#ffac33);
+    border-color: #f1a02a;
+    color: #292f33;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.main .btn-warning:hover {
+    background-image: linear-gradient(#ffcc4d,#e99110);
+}
+
+.main h2 {
+    display: block;
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-top: 0px;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.main h2 small {
+    font-size: inherit;
+}
+
+.note a {
+    display: block;
+    font-size: 14px;
+    color: white;
+}
+
+.note a.description {
+    text-decoration: underline;
+}
+
+.footer {
+    margin-top: 30px;
+}
+
+.footer a {
+    font-size: 14px;
+    color: white;
+    margin-right: 6px;
+}

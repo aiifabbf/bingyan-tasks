@@ -1,0 +1,582 @@
+    @font-face {
+        font-family: Lato;
+        src: url("fonts/Lato2OFL/Lato-Light.ttf");
+    }
+
+    @font-face {
+        font-family: LatoHeavy;
+        src: url("fonts/Lato2OFL/Lato-Heavy.ttf");
+    }
+
+    * {
+        font-family: Lato;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0px;
+        background-color: rgb(243, 246, 250);
+    }
+
+    ul {
+        list-style: none;
+        list-style-position: hidden;
+        overflow: hidden;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    strong, h1 {
+        font-family: LatoHeavy;
+    }
+
+    p strong, h2 strong {
+        font-family: Lato;
+        font-weight: 900;
+    }
+
+    #intro {
+        width: 100%;
+        height: 597px;
+        background-attachment: scroll, scroll, scroll, fixed;
+        background-image: url("images/dark-bl.svg"),
+        url("images/dark-br.svg"), url("images/overlay.png"), url("images/banner.jpg");
+        background-position: bottom left, bottom right, top left, top center;
+        background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+        background-size: 25em, 25em, auto, cover;
+        text-align: center;
+    }
+
+    #intro a {
+        color: rgb(255, 255, 255);
+    }
+
+    .header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        text-align: left;
+        padding: 29.87px 37.33px;        
+    }
+
+    .header-transparent {
+        background-color: transparent;
+    }
+
+    .header-white {
+        background-color: white;
+    }
+
+    .logo {
+        height: 33.90625px;
+        line-height: 33.90625px;
+        font-size: 14.93px;
+        letter-spacing: 0.025em;
+    }
+
+    .logo-white {
+        color: white;
+    }
+
+    .logo-grey {
+        color: rgb(124, 128, 129);
+    }
+
+    .button {
+        display: inline-block;
+        padding: 8.32px 10.40px;
+        text-align: center;
+        letter-spacing: 2px;
+        font-size: 14.93px;
+        overflow: hidden;
+    }
+
+    .button-white {
+        color: white;
+        border: solid 1px transparent;
+        transition: background-color 0.2s, border 0.2s;
+    }
+
+    .button-white:hover {
+        background-color: rgba(255, 255, 255, 0.075);
+        border: solid 1px rgb(255, 255, 255);       
+    }
+
+    .button-green {
+        color: white;
+        background-color: #83d3c9;
+        transition: background-color 0.2s;
+    }
+
+    .button-green:hover {
+        background-color: #96dad1;
+    }
+
+    .button-big {
+        height: 56px;
+        line-height: 56px;
+        border: solid 1px white;
+        padding: 0px;
+    }
+
+    .button-black {
+        color: rgb(124, 128, 129);
+        border: solid 1px rgb(124, 128, 129);
+        transition: background-color 0.2s;
+    }
+
+    .button-black:hover {
+        background-color: rgba(188, 202, 206, 0.15);
+    }
+
+        
+    .button-grey {
+        color: rgb(124, 128, 129);
+        transition: background-color 0.2s;        
+    }
+
+    .button-grey:hover {
+        background-color: rgba(188, 202, 206, 0.14902);
+    }
+
+    #intro-upper-logo {
+        float: left;
+    }
+
+    #intro-upper-signup {
+        float: right;
+    }
+
+    #intro-upper-welcome, #intro-upper-layouts {
+        float: right;
+        margin-right: 22.40px;
+    }
+
+    #intro-frame {
+        background: rgba(52, 27, 43, 0.5);
+        color: #fff;
+        padding: 3em;
+        text-align: center;
+
+        margin-left: auto;
+        margin-right: auto;
+        width: 353.594px;
+        height: 383.655px;
+
+        position: relative;
+        top: 104px;
+    }
+
+    #intro-frame h1 {
+        display: inline-block;
+        border-bottom: double 6px;
+        border-top: double 6px;
+        margin: 0 0 34.67px 0;
+        padding: 3px 0 3px 0;
+        vertical-align: baseline;
+        font-size: 43.3333358764648px;
+        letter-spacing: 8.66666698455811px;
+        font-weight: 900;
+    }
+
+    #intro-frame p {
+        letter-spacing: 0.1em;
+        font-size: 17.3333339691162px;
+        line-height: 28.6000003814697px;
+    }
+
+    #intro-frame-button {
+        margin-top: 34.67px;
+        width: 100%;
+    }
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 1680px) {
+    .container {
+        width: 1200px;
+    }}
+
+    @media screen and (max-width: 1280px) {
+    .container {
+        width: 960px;
+    }}
+
+
+    #consequat {
+        color: rgb(124, 128, 129);
+        margin-top: 0px;
+        margin-bottom: 69.33px;
+    }
+
+    #consequat h1 {
+        font-size: 3.5em;
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+
+    #consequat h2 {
+        font-size: 26px;
+        letter-spacing: 2.59999990463257px;
+        font-weight: 300;
+        line-height: 39px;
+    }
+
+    #consequat p {
+        font-size: 17.3333339691162px;
+        letter-spacing: 0.433333337306976px;
+        line-height: 28.6000003814697px;
+    }
+
+    #felis {
+        margin-bottom: 69.33px;
+    }
+    
+    #felis .container {
+        background-color: #83d3c9;
+        text-align: left;
+        height: 530.65625px;
+    }
+
+    #felis h2 {
+        font-size: 1.5em;
+        letter-spacing: 0.1em;
+        font-weight: 300;
+        line-height: 1.5em;
+        color: rgb(255, 255, 255);
+    }
+
+    #felis p {
+        font-size: 17.3333339691162px;
+        letter-spacing: 0.433333337306976px;
+        line-height: 28.6000003814697px;
+        color: rgb(255, 255, 255);
+        margin-bottom: 34.67px;
+    }
+
+    #felis-intro {
+        display: inline-block;
+        padding-top: 49.33px;
+        padding-left: 52px;
+        padding-bottom: 69.33px;
+        width: 66.7%;
+        float: left;
+    }
+
+    #felis-intro-button {
+        margin-top: 34.67px;
+        width: 249.59px;
+    }
+
+    #felis-intro-button:hover {
+        background-color: rgba(188, 202, 206, 0.15);
+    }
+
+    #felis-icons {
+        display: inline-block;
+        width: 33.3%;
+        float: left;
+        padding-top: 49.33px;
+        padding-right: 52px;
+        padding-bottom: 69.33px;    
+    }
+
+    #felis-icons li {
+        display: block;
+        float: left;
+        width: 50%;
+        line-height: 135px;
+        text-align: center;
+    }
+
+    #felis-icons ul {
+        padding-left: 20px;
+    }
+
+    #felis-icons .fa {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 6.25em;
+        height: 1.25em;
+        line-height: 1.25em;
+    }
+
+    #threeyes * {
+        color: rgb(124, 128, 129);
+    }
+
+    .threeyes-col {
+        display: inline-block;
+        width: 33.3%;
+        overflow: hidden;
+    }
+
+    #col-1 {
+        padding-right: 40px;
+        float: left;
+    }
+
+    #col-2 {
+        float: left;
+    }
+
+    #col-3 {
+        padding-left: 40px;
+    }
+
+    #threeyes {
+        margin-bottom: 69.33px;
+    }
+
+    #threeyes i {
+        font-size: 86.6666717529297px;
+    }
+
+    #threeyes h3 {
+        font-size: 19.9333343505859px;
+        font-weight: 300;
+        letter-spacing: 0.498333364725113px;
+        line-height: 29.9000015258789px;
+    }
+
+    #threeyes p {
+        font-size: 17.3333339691162px;
+        letter-spacing: 0.433333337306976px;
+        line-height: 28.6000003814697px;
+    }
+
+    #nislaugue .container {
+        background-color: white;
+        padding: 69.33px;
+    }
+
+    #nislaugue h2 {
+        font-size: 1.5em;
+        letter-spacing: 0.1em;
+        font-weight: 300;
+        line-height: 1.5em;
+        color: rgb(124, 128, 129);
+    }
+
+    #nislaugue h3 {
+        display: inline-block;
+        font-size: 1.15em;
+        letter-spacing: 0.025em;
+        font-weight: 300;
+        line-height: 1.5em;
+        color: rgb(124, 128, 129);
+    }
+
+    #nislaugue p {
+        display: inline-block;
+        font-size: 1.15em;
+        letter-spacing: 0.025em;
+        font-weight: 300;
+        line-height: 1.5em;
+        color: rgb(124, 128, 129);
+    }
+
+    .nislaugue-item {
+        display: inline-block;
+        width: 50%;
+        padding: 40px;
+        float: left;
+    }
+
+    #nislaugue-item-4 {
+        float: none;
+    }
+
+    #nislaugue-button {
+        margin-top: 34.67px;
+        width: 249.59px;
+    }
+
+
+    #footer {
+        background-attachment: scroll, fixed;
+        background-color: #645862;
+        background-image: url("images/overlay.png"), url("images/banner.jpg");
+        background-position: top left, bottom center;
+        background-repeat: repeat, no-repeat;
+        background-size: auto, cover;
+        color: #fff;
+        padding: 5em;
+        text-align: center;
+    }
+
+    #footer h2 {
+        font-size: 1.5em;
+        letter-spacing: 0.1em;
+        font-weight: 300;
+        line-height: 1.5em;
+        color: white;
+    }
+
+    #footer p {
+        display: block;
+        font-size: 1.15em;
+        letter-spacing: 0.025em;
+        font-weight: 300;
+        line-height: 1.5em;
+        color: white;
+    }
+
+    #footer-button-1 {
+        width: 249.59px;
+        margin-right: 26px;
+        border: none;
+    }
+
+    #footer-button-2 {
+        width: 249.59px;
+    }
+
+    #footer-button-2:hover {
+        background-color: rgba(188, 202, 206, 0.15);
+    }
+
+
+    .main {
+        background-image: url("images/dark-tl.svg"), url("images/dark-tr.svg"), url("images/dark-bl.svg"), url("images/dark-br.svg");
+        background-position: top left, top right, bottom left, bottom right;
+        background-repeat: no-repeat;
+        background-size: 25em;
+
+        padding-top: 93.33px;
+        padding-bottom: 130.67px;
+    }
+
+    #share {
+        padding: 69.33px;
+        text-align: center;
+        background-color: #E8EEF4;
+    }
+
+    #share a {
+        display: inline-block;
+        width: 48px;
+        line-height: 48px;
+        height: 48px;
+        border-radius: 50px;
+        color: white;
+        font-size: 21.67px;
+        margin-right: 8.67px;
+        position: relative;
+        top: 0em;
+        transition: top 0.2s, background-color 0.2s;
+    }
+
+    #share a:hover {
+        top: -0.8em;
+    }
+
+    #share-icon-1 {
+        background-color: #70aecd;
+    }
+
+    #share-icon-2 {
+        background-color: #7490c3;
+    }
+
+    #share-icon-3 {
+        background-color: #df7b77;
+    }
+
+    #share-icon-4 {
+        background-color: #dcad8b;
+    }
+
+    #share-icon-5 {
+        background-color: #da83ae;
+    }
+
+    #share p {
+        color: rgb(124, 128, 129);
+        font-size: 13.87px;
+    }
+
+    #popup {
+        display: none;
+        position: absolute;
+        top: 60.61px;
+        text-align: left;
+        padding: 0px;
+        background-color: white;
+    }
+
+    #popup li {
+        display: block;
+        line-height: 29.3999996185303px;
+        padding: 0 13.07px;
+        color: rgb(124, 128, 129);
+        border-bottom: solid 1px rgb(124, 128, 129);
+    }
+
+
+    #contac-main .header {
+        background-color: white;
+        position: fixed;
+        box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 2px 0px;
+    }
+
+    #contac-main {
+        padding-top: 158.80px;
+        text-align: center;
+    }
+
+    #contac-main #intro-upper #intro-upper-signup {
+        color: white;
+    }
+
+    #contac-main #form .container {
+        background-color: white;
+        padding: 74.67px;
+        width: 900px;
+        text-align: center;
+    }
+
+    #contac-main #form input, textarea{
+        display: inline-block;
+        float: left;
+        line-height: 1em;
+        border: solid 1px rgba(124, 128, 129, 0.2);
+        font-family: Lato;
+        font-size: 18.67px;
+        padding: 14px;
+        margin-bottom: 20px;
+        transition: border 0.2s;
+        outline: 0;
+    }
+
+    #contac-main #form input:focus, textarea:focus {
+        border: solid 1px #83d3c9;
+    }
+
+    #contac-main-form-name {
+        margin-right: 20px;
+    }
+
+    #contac-main-form-name, #contac-main-form-email {
+        width: 365px;
+    }
+
+    #contac-main-form-subject {
+        width: 100%;
+    }
+
+    #contac-main-form-message {
+        float: none;
+        width: 100%;
+        height: 254px;
+    }
+
+    #contac-main-form-sendmessage {
+        width: 268.80px;
+    }

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>欢迎来到 Twitter - 登录或注册</title>
+    <style>
+    body {
+        background-image: url("img/US_CA_6.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    header {
+        background-color: white;
+    }
+
+    header .fa {
+        color: rgb(85, 172, 238);
+        font-size: 21px;
+    }
+
+    header a {
+        line-height: 46px;
+        height: 46px;
+        display: inline-block;
+        text-align: center;
+        color: rgb(102, 117, 127);
+    }
+
+    header a.button {
+        text-decoration: none;
+        color: rgb(102, 117, 127);
+        border-bottom: solid 4px transparent;
+        transition: border-bottom 0.2s;
+        padding: 0px 9px;
+    }
+
+    header a.button:hover {
+        border-bottom: solid 4px rgb(85, 172, 238);
+    }
+
+    .main {
+        margin-top: 117px;
+    }
+
+    .intro h1 {
+        color: white;
+        margin-top: 0px;
+    }
+
+    .intro p {
+        color: white;
+        font-size: 21px;
+        font-weight: 300;
+    }
+
+    form {
+        background-color: white;
+        border-radius: 4px;
+        padding: 12px;
+        margin-bottom: 11px;
+    }
+
+    input {
+        padding: 4px;
+    }
+
+    label {
+        color: #8899a6;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .main .checkbox {
+        margin: 0px 0px;
+    }
+
+    .main .btn-primary {
+        background-color: #55acee;
+        background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.05));
+        border: 1px solid #3b88c3;
+    }
+
+    .main .btn-primary:hover {
+        background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.15));
+    }
+
+    .main .btn-warning {
+        background-color: #ffac33;
+        background-image: linear-gradient(#ffcc4d,#ffac33);
+        border-color: #f1a02a;
+        color: #292f33;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    }
+
+    .main .btn-warning:hover {
+        background-image: linear-gradient(#ffcc4d,#e99110);
+    }
+
+    .main h2 {
+        display: block;
+        font-size: 16px;
+        padding-bottom: 10px;
+        margin-top: 0px;
+        border-bottom: 1px solid #e1e8ed;
+    }
+
+    .main h2 small {
+        font-size: inherit;
+    }
+
+    .note a {
+        display: block;
+        font-size: 14px;
+        color: white;
+    }
+
+    .note a.description {
+        text-decoration: underline;
+    }
+
+    .footer {
+        margin-top: 30px;
+    }
+
+    .footer a {
+        font-size: 14px;
+        color: white;
+        margin-right: 6px;
+    }
+
+    </style>
+
+</head>
+<body>
+    <header class="navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <a class="button" href="###"><i class="fa fa-twitter"></i>
+                    <span class="hidden-xs">主页</span>
+                </a>
+                <a class="button hidden-xs" href="###">
+                    <span>关于</span>
+                </a>
+                <a href="###" style="float:right">
+                    语言:简体中文<span class="caret"></span></a>
+            </div>
+        </div>
+    </header>
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="intro col-md-5">
+                <h1><strong>欢迎使用Twitter。</strong></h1>
+                <br></br>
+                <p>联系你的好友和更多精彩。获取你感兴趣的实时更新。并通过每个视角观看事件实时呈现。</p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <form>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="手机、邮件地址或用户名">
+                    </div>
+                    <div class="form-group form-inline">
+                        <input type="password" name="email" class="form-control" placeholder="密码">
+                        <button type="submit" class="btn btn-primary" style="float:right;">
+                            <strong>登录</strong>
+                        </button>
+                    </div>
+                    <div class="form-group checkbox">
+                        <label>
+                            <input type="checkbox" value="1" name="remember-me">
+                            记住我
+                        <a href="###">· 忘记密码?</a>
+                        </label>
+                    </div>
+                </form>
+                <form>
+                    <h2 class="text-block">新来 Twitter? <small>注册</small></h2>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="全名"></input>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="邮件地址"></input>
+                    </div>
+                    <div class="form-group">
+                        <input type="passwd" class="form-control" placeholder="密码"></input>
+                    </div>
+                    <div class="form-group text-right" style="margin-bottom: 0px;">
+                        <button class="btn btn-warning">
+                            <strong>注册 Twitter</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+            <div class="row note">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <a>Sums up this weekend.</a>
+                    <br>
+                    <a class="description">由 @sanarao 拍摄及发布</a>
+                    <a class="description">07:05 PM -9 Nov 2014</a>
+                </div>
+            </div>
+        <div class="row text-center footer">
+            <a>关于</a>
+            <a>帮助</a>
+            <a>博客</a>
+            <a>状态</a>
+            <a>工作机会</a>
+            <a>条款</a>
+            <a>隐私</a>
+            <a>Cookies</a>
+            <a>广告信息</a>
+            <a>商标</a>
+            <a>广告</a>
+            <a>企业</a>
+            <a>媒体</a>
+            <a>开发者</a>
+            <a>目录</a>
+            <a>© 2015 Twitter</a>
+        </div>
+    </div>
+</body>
+

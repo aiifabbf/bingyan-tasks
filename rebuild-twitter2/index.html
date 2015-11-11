@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <script src="js/jquery.min.js"></script>
+    <title>欢迎来到 Twitter - 登录或注册</title>
+    <style>
+    /*
+    1.位置属性(position, top, right, z-index, display, float等)
+    2.大小(width, height, padding, margin)
+    3.文字系列(font, line-height, letter-spacing, color- text-align等)
+    4.背景(background, border等)
+    5.其他(animation, transition等)
+    */
+
+    /* layout rules 
+    Including the following ONLY:
+    [max-|min-]width
+    padding[-top|-right|-bottom|-left]
+    text-align
+    vertical-align
+    */
+
+    /* position rules
+    margin[-top|-right|-bottom|-left]
+    float
+
+
+    /* unified arguments start */
+    * {
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    /* unified arguments end */
+
+    /* layout widgets start */
+    @media screen and (min-width: 1236px) {
+        .container {
+            min-width: 1190px;
+        }
+    }
+
+    @media screen and (max-width: 1190px) {
+        .container {
+            min-width: 590px;
+        }
+    }
+
+    @media screen and (max-width: 936px) {
+        .element-hidden-sm {
+            display: none;
+        }
+    }
+
+    .container {
+        max-width: 890px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .frame {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* layout widgets end */
+
+    /* visible widgets GENERIC start */
+    body {
+        background-color: black;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        transition: all 1s ease-in-out;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+        background-color: white;
+    }
+
+    a {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    button {
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+    .tab {
+        display: inline-block;
+        text-align: center;
+        transition: all .15s ease-in-out;
+    }
+    /* visible widgets GENERIC end */
+
+    /* visible widgets SPECIFIC start */
+    header a {
+        line-height: 46px;
+        color: rgb(102, 117, 127);
+    }
+
+    header a:hover {
+        color: #55acee;
+    }
+
+    header a .fa {
+        color: rgb(102, 117, 127);
+    }
+
+    header .tab {
+        padding: 0 14px 0 14px; 
+    }
+
+    header .tab:hover {
+        line-height: 46px;
+        height: 46px;
+        text-decoration: none;
+        color: #55acee;
+        border-bottom: 4px solid #55acee;
+    }
+
+    header .tab .fa {
+        font-size: 21px;
+        color: rgb(85, 172, 238);
+    }
+
+    .card {
+        background-color: #fff;
+        border: 1px solid #e1e8ed;
+        border-radius: 4px;
+    }
+
+    form {
+        margin: 12px 12px 6px 12px;
+    }
+
+    form input {
+        font-size: 13px;
+        line-height: 20px;
+        padding: 4px;
+        width: 100%;
+        border: 1px solid #ccd6dd;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 0 #eee,#fff 0 1px 0;
+    }
+
+    form input:focus {
+        outline: none;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.05),0 0 8px rgba(82,168,236,0.6);
+    }
+
+    form button {
+        height: 30px;
+        color: #fff;
+        border: 1px solid #3b88c3;
+        background-color: #55acee;
+        background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.05));
+    }
+
+    form button:hover {
+        background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.15))
+    }
+
+    form button:active {
+        background-color: #3b88c3;
+        color: #292f33;
+    }
+
+    form #buttonSignUp {
+        color: #292f33;
+        border-color: #ec8b11;
+        background-color: #e99110;
+        background-image: linear-gradient(#ffcc4d, #ffac33);
+        text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    }
+
+    form #buttonSignUp:hover {
+        background-image: linear-gradient(#ffcc4d, #e99110);
+    }
+    /* visible widgets SPECIFIC end */
+
+    /* theme */
+    /* theme */
+
+    /* Communicative elements start */
+    #menuLanguageSelection {
+        display: none;
+        position: absolute;
+        width: 267px;
+        right: 0;
+        background-color: white;
+        padding: 10px 0;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    }
+
+    #menuLanguageSelection .linkLanguage {
+        display: inline-block;
+        font-size: 12px;
+        width: 49%;
+        line-height: 28px;
+        padding-left: 20px;
+        overflow-x: hidden;
+    }
+
+    #menuLanguageSelection .linkLanguage:hover {
+        text-decoration: none;
+        color: #fff;
+        background: #3b88c3;
+    }
+
+    #menuLanguageSelection .fa {
+        display: block;
+        position: absolute;
+        top: -30px;
+        right: 7px;
+        font-size: 40px;
+        color: white;
+        text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    #frameDescription {
+        width: 100%;
+    }
+
+    #frameDescription a {
+        display: block;
+        font-size: 14px;
+        color: #fff;
+    }
+
+    #linkAuthor, #linkTime {
+        text-decoration: underline;
+    }
+
+    </style>
+</head>
+<body>
+    <header style="position: fixed; top: 0;">
+        <div class="container">
+            <div style="float: left">
+                <a class="tab" href="###">
+                    <i class="fa fa-twitter"></i>
+                    <span class="element-hidden-sm" style="margin-left: 5px">
+                        主页
+                    </span>
+                </a>
+                <a class="tab" href="###">
+                    <span class="element-hidden-sm">
+                        关于
+                    </span>
+                </a>
+            </div>
+            <div style="float: right; position: relative;">
+                <a id="linkLanguageSelection" href="###">
+                    <span>语言: 简体中文</span>
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                <div id="menuLanguageSelection">
+                    <i class="fa fa-caret-up"></i>
+                    <a class="linkLanguage">繁體中文</a>
+                    <a class="linkLanguage">日本語</a>
+                    <a class="linkLanguage">Bahasa Indonesia</a>
+                    <a class="linkLanguage">Bahasa Melayu</a>
+                    <a class="linkLanguage">Čeština</a>
+                    <a class="linkLanguage">Dansk</a>
+                    <a class="linkLanguage">Deutsch</a>
+                    <a class="linkLanguage">English</a>
+                    <a class="linkLanguage">English UK</a>
+                    <a class="linkLanguage">Español</a>
+                    <a class="linkLanguage">Filipino</a>
+                    <a class="linkLanguage">Français</a>
+                    <a class="linkLanguage">Italiano</a>
+                    <a class="linkLanguage">Magyar</a>
+                    <a class="linkLanguage">Nederlands</a>
+                    <a class="linkLanguage">Norsk</a>
+                    <a class="linkLanguage">Polski</a>
+                    <a class="linkLanguage">Português</a>
+                    <a class="linkLanguage">Română</a>
+                    <a class="linkLanguage">Suomi</a>
+                    <a class="linkLanguage">Svenska</a>
+                    <a class="linkLanguage">Tiếng Việt</a>
+                    <a class="linkLanguage">Türkçe</a>
+                    <a class="linkLanguage">Русский</a>
+                    <a class="linkLanguage">Українська мова</a>
+                    <a class="linkLanguage">עִבְרִית</a>
+                    <a class="linkLanguage">العربية</a>
+                    <a class="linkLanguage">فارسی</a>
+                    <a class="linkLanguage">मराठी</a>
+                    <a class="linkLanguage">हिन्दी</a>
+                    <a class="linkLanguage">বাংলা</a>
+                    <a class="linkLanguage">ગુજરાતી</a>
+                    <a class="linkLanguage">தமிழ்</a>
+                    <a class="linkLanguage">ಕನ್ನಡ</a>
+                    <a class="linkLanguage">ภาษาไทย</a>
+                    <a class="linkLanguage">한국어</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="frame" style="margin-top: 117px; width: 838px;">
+        <div style="display: inline-block; width:470px; height: 328px;">
+            <h1 style="margin: 0 0 30px 0; font-size: 38px; line-height: 44px; color: #fff;">
+                欢迎使用Twitter。
+            </h1>
+            <p style="font-size: 21px; font-weight: 300; line-height: 31px; color: #fff;">
+                联系你的好友和更多精彩。获取你感兴趣的实时更新。并通过每个视角观看事件实时呈现。
+            </p>
+        </div>
+        <div style="display: inline-block; width: 302px; float: right;">
+            <div class="card">
+                <form method="post">
+                    <div>
+                        <input type="text" id="signin-email" class="text-input email-input" name="session[username_or_email]" autocomplete="on" placeholder="手机、邮件地址或用户名" style="margin-bottom: 15px; width: 100%;">
+                    </div>
+                    <div>
+                        <input type="password" id="signin-password" class="text-input flex-table-input" name="session[password]" placeholder="密码" style="width: 209px;">
+                        <button class="button" type="submit" style="width: 62px;">
+                            登录
+                        </button>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" vale="1" name="remember_me" checked="checked" style="width: auto;">
+                            <span style="font-size: 12px; line-height: 20px; color: #8899a6;">记住我</span>
+                        </label>
+                        <span>·</span>
+                        <a href="###" style="font-size:12px; color: #0084b4;">忘记密码？</a>
+                    </div>
+                </form>
+            </div>
+            <div class="card" style="margin-top: 11px;">
+                <div style="font-size: 16px; border-bottom: 1px solid #e1e8ed; padding: 10px 12px;">
+                    <span style="font-weight: 500;">新来Twitter? </span><span style="font-weight: 300;">注册</span>
+                </div>
+                <form method="post">
+                    <div>
+                        <input type="text" class="text-input" autocomplete="off" name="user[name]" maxlength="20" placeholder="全名" style="margin: 3px 0;">
+                    </div>
+                    <div>
+                        <input type="text" class="text-input email-input" autocomplete="off" name="user[email]" placeholder="邮件地址" style="margin: 3px 0;"></input>
+                    </div>
+                    <div>
+                        <input type="password" class="text-input" name="user[user_password]" placeholder="密码" style="margin: 3px 0px;">
+                    </div>
+                    <div style="text-align: right;">
+                        <button id="buttonSignUp">注册 Twitter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="frameDescription">
+            <a id="linkTweet" style="margin-bottom: 20px;">Sums up this holiday.</a>
+            <a id="linkAuthor">Benjamin Shi</a>
+            <a id="linkTime">12:06 Tuesday</a>
+        </div>
+        <div style="margin-top: 50px; text-align: center; color: white;">
+            <a>关于</a>
+            <a>帮助</a>
+            <a>博客</a>
+            <a>状态</a>
+            <a>工作机会</a>
+            <a>条款</a>
+            <a>隐私</a>
+            <a>Cookies</a>
+            <a>广告信息</a>
+            <a>商标</a>
+            <a>广告</a>
+            <a>企业</a>
+            <a>媒体</a>
+            <a>开发者</a>
+            <a>目录</a>
+            <a>© 2015 Twitter</a>
+        </div>
+    </div>
+    <script>
+    $("#linkLanguageSelection").click(
+        function()
+        {
+            $("#menuLanguageSelection").toggle();
+        }
+    );
+
+    var tree = [
+    {
+        "dir": "img/US_CA_6.jpg",
+        "tweet": "Sums up this holiday.",
+        "author": "Benjamin Shi",
+        "time": "12:06 Tuesday"
+    },
+    {
+        "dir": "img/US_CA_4.jpg",
+        "tweet": "Sums up this holiday.",
+        "author": "Benjamin Shi",
+        "time": "12:06 Tuesday"
+    },
+    {
+        "dir": "img/US_CA_7.jpg",
+        "tweet": ".@ChicagoBulls outlast @Warriors in a dramatic finish,113-111. D-Rose overcomes TOs, nails game-winning jumper.",
+        "author": "Tweet and photo by @NBA",
+        "time": "11:13 PM - 27 Jan 2015"
+    },
+    {
+        "dir": "img/US_CA_5.jpg",
+        "tweet": "What a ride it has been. 166 days in #space, time for me @astro_alex @msuraev to head home.",
+        "author": "Tweet and photo by @astro_reid",
+        "time": "10:03 PM - 9 Nov 2014"
+    }
+    ]
+    var c = 0;
+    function nextBackground() {
+        if(tree[c] == undefined)
+        {
+            c = 0;
+        }
+        i = tree[c];
+        $("#linkTweet").text(i["tweet"]);
+        $("#linkAuthor").text(i["author"]);
+        $("#linkTime").text(i["time"]);
+        $("body").css("background-image", "url("+i["dir"]+")");
+        c = c + 1;
+    }
+
+    nextBackground()
+    window.setInterval(nextBackground, 5000);
+    </script>
+</body>
+
