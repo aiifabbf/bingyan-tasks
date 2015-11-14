@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <script src="js/jquery.min.js"></script>
+    <title>Twitter</title>
+    <style>
+    /* layout rules 
+    Including the following ONLY:
+    [max-|min-]width
+    padding[-top|-right|-bottom|-left]
+    text-align
+    vertical-align
+    */
+
+    /* position rules
+    margin[-top|-right|-bottom|-left]
+    float
+
+
+    /* unified arguments start */
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    /* unified arguments end */
+
+    /* layout widgets start */
+    @media screen and (min-width: 1236px) {
+        .container {
+            min-width: 1190px;
+        }
+    }
+
+    @media screen and (max-width: 1190px) {
+        .container {
+            min-width: 590px;
+        }
+    }
+
+    @media screen and (max-width: 936px) {
+        .element-hidden-sm {
+            display: none;
+        }
+    }
+
+    .container {
+        max-width: 890px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .frame {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .frame>div {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    /* layout widgets end */
+
+    /* visible widgets GENERIC start */
+    body {
+        background-color: #f5f8fa;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        transition: all 1s ease-in-out;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+        background-color: white;
+    }
+
+    a {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    button {
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    .tab {
+        display: inline-block;
+        text-align: center;
+        transition: all .15s ease-in-out;
+    }
+
+    .search-input {
+        display: inline-block;
+    }
+
+    .tweet {
+        padding: 9px 12px;
+        border-bottom: 1px solid #e1e8ed;
+    }
+
+    .tweet>div {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .tweet .content {
+        width: 480px;
+    }
+
+    /* visible widgets GENERIC end */
+
+    /* visible widgets SPECIFIC start */
+    header {
+        border-bottom: 1px solid rgba(0,0,0,0.20);
+    }
+
+    header a {
+        color: rgb(102, 117, 127);
+    }
+
+    header a:hover {
+        color: #0084B4;
+    }
+
+    header .tab {
+        color: rgb(102, 117, 127);
+        padding: 0 14px 0 14px; 
+    }
+
+    header .tab:hover, .tab.hover {
+        line-height: 46px;
+        height: 46px;
+        text-decoration: none;
+        color: #0084B4;
+        border-bottom: 4px solid #0084B4;
+    }
+
+    header .tab .fa {
+        font-size: 21px;
+    }
+
+    header .search-input {
+        font-size: 12px;
+        background-color: #f5f8fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 21px;
+        transition: all .2s ease-in-out;
+    }
+
+    header .search-input input {
+        height: 32px;
+        padding: 5px 27px 6px 12px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+
+    header .search-input button {
+        background-color: transparent;
+        border: none;
+        color: #66757f;
+    }
+
+    header .search button .fa {
+        font-size: 13px;
+    }
+
+    header button.button {
+        text-decoration: none;
+        vertical-align: middle;
+        line-height: 32px;
+        padding: 0 13px 0 14px;
+        color: #fff;
+        background-color: #0084B4;
+        background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0));
+        border: none;
+        border-radius: 4px;
+        transition: all .15s ease-in-out;
+        cursor: pointer;
+    }
+
+    header button.button:hover {
+        background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.15));
+    }
+
+    .tweet:hover {
+        background-color: rgb(245, 248, 250);
+    }
+
+    .tweet h1 {
+        font-size: 14px;
+        color: #292f33;
+        margin-top: 0px;
+    }
+
+    .tweet small {
+        font-size: 13px;
+    }
+
+    .tweet p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .tweet .action-group {
+        display: block;
+        margin-left: 58px;
+    }
+
+    .tweet .action-group a {
+        display: inline-block;
+        width: 80px;
+        font-size: 16px;
+    }
+
+    .tweet .action-group .fa {
+        color: #ccd6dd;
+    }
+
+    .tweet .action-group .fa-reply:hover {
+        color: #0084B4;
+    }
+
+    .tweet .action-group .fa-retweet:hover {
+        color: #5c913b;
+    }
+
+    .tweet .action-group .fa-star:hover {
+        color: #ffac33;
+    }
+
+    .tweet .action-group .fa-ellipsis-h:hover {
+        color: #0084B4;
+    }
+
+    .card {
+        border: 1px solid #e1e8ed;
+        background: #FFF;
+        border-radius: 6px; 
+    }
+
+    /* communicative widgets */
+    #frameTweeting {
+        padding: 10px 12px;
+        background-color: rgb(229, 242, 247);
+        border-bottom-color: rgb(191, 224, 236);
+    }
+
+    #frameTweeting textarea {
+        font-size: 14px;
+        padding: 8px 10px;
+        border-color: rgba(0,132,180,0.25);
+        border-radius: 3px;
+        color: #0084B4;
+        /*color: #ccd6dd;*/
+        height: 32px;
+        width: 508px;
+        outline: none;
+        overflow: hidden;
+        resize: none;
+    }
+
+    #frameTweeting textarea:focus {
+        border-color: #99CDE1;
+    }
+
+    #frameTweeting button {
+        font-size: 14px;
+        height: 36px;
+        padding: 0 10px;
+        color: #0084B4;
+        background-color: transparent;
+        border: 1px solid transparent;
+    }
+
+    #frameTweeting button:hover {
+        border-color: rgba(0,132,180,.5);
+        background-image: linear-gradient(rgba(255,255,255,0), rgba(0,132,180,.1));
+    }
+
+    #frameTweeting .tweetButton {
+        background-color: #0084B4;
+        background: rgba(0,132,180,.8);
+        font-weight: bold;
+        color: white;
+        float: right;
+    }
+
+    #frameTweeting .tweetButton:hover {
+        background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.15));
+    }
+
+    #frameTweeting #wordCount {
+        font-size: 14px;
+        line-height: 32px;
+        margin-right: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <header style="position: fixed; top: 0;">
+        <div class="container">
+            <div style="float: left">
+                <a class="tab hover" href="###">
+                    <i class="fa fa-home"></i>
+                    <span class="element-hidden-sm" style="margin-left: 5px">
+                        Home
+                    </span>
+                </a>
+                <a class="tab" href="###">
+                    <i class="fa fa-bell"></i>
+                    <span class="element-hidden-sm">
+                        Notifications
+                    </span>
+                </a>
+                <a class="tab" href="###">
+                    <i class="fa fa-envelope"></i>
+                    <span class="element-hidden-sm">
+                        Messages
+                    </span>
+                </a>
+            </div>
+            <i class="fa fa-twitter" style="color: #55acee; font-size: 21px; line-height: 46px; position: absolute; left: 50%;"></i>
+            <div style="float: right; position: relative;">
+                <div class="search-input" style="margin: 7px 15px 0 0;">
+                    <input type="text" placeholder="Search Twitter"></input>
+                    <button><i class="fa fa-search"></i></button>
+                </div>
+                <a href="###" style="margin-right: 15px; text-decoration: none; display: inline-block; vertical-align: middle;">
+                    <img src="img/avatar.png" style="width: 32px; height: 32px; border-radius: 4px; vertical-align: middle;"></img>
+                </a>
+                <button class="button">
+                    <i class="fa fa-pencil-square-o" style="font-size: 24px; vertical-align: middle;"></i>
+                    <span>Tweet</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <div class="frame" style="width: 1218px; margin-top: 56px;">
+        <div style="width: 290px; margin-left: 10px;">
+            <div class="card" id="framePersonalIntroduction">
+                <div style="height: 96px; background: #0084B4;"></div>
+                <div style="height: 96px;"></div>
+            </div>
+            <div class="card" id="frameTrends" style="margin-top: 10px; height: 200px;">
+            </div>
+        </div>
+        <div class="card" id="frameTweets" style="width: 590px; margin: 0 5px;">
+
+            <div id="frameTweeting">
+                <img src="img/avatar.png" style="width: 32px; height: 32px; border-radius: 4px; vertical-align: top; margin-left: 10px;"></img>
+                <form style="display: inline-block; margin-left: 5px;">
+                    <textarea placeholder="">What's happening?</textarea>
+                    <div id="actionGroup" style="display: none;">
+                        <button>
+                            Media
+                        </button>
+                        <button>
+                            Location
+                        </button>
+                        <button>
+                            Poll
+                        </button>
+                        <div style="display: inline-block; float: right;">
+                            <span id="wordCount">140</span>
+                            <button class="tweetButton">
+                                <i class="fa fa-pencil-square-o" style="font-size: 24px; vertical-align: middle;"></i>
+                                <span>Tweet</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tweet">
+                <div class="avatar">
+                    <a href="###" style="margin-right: 10px;">
+                        <img src="img/avatar-big.png" style="width: 48px; height: 48px; border-radius: 4px;"></img>
+                    </a>
+                </div>
+                <div class="content">
+                    <a><h1>Benjamin Shi</a> <small>@aiifabbf - <a>13 Apr 2011</a></small></h1>
+                    <p>Nononono!!!!!</p>
+                </div>
+                <div class="action-group"> 
+                    <a><i class="fa fa-reply"></i></a>
+                    <a><i class="fa fa-retweet"></i></a>
+                    <a><i class="fa fa-star"></i></a>
+                    <a><i class="fa fa-ellipsis-h"></i></a>
+                </div>
+            </div>
+
+            <div class="tweet">
+                <div class="avatar">
+                    <a href="###" style="margin-right: 10px;">
+                        <img src="img/avatar-big.png" style="width: 48px; height: 48px; border-radius: 4px;"></img>
+                    </a>
+                </div>
+                <div class="content">
+                    <a><h1>Benjamin Shi</a> <small>@aiifabbf - <a>11 Apr 2011</a></small></h1>
+                    <p>@PointerRoyden Who's gonna be named Pointer? It's such a special name...Fun~~But Royden's really a good name.</p>
+                </div>
+                <div class="action-group"> 
+                    <a><i class="fa fa-reply"></i></a>
+                    <a><i class="fa fa-retweet"></i></a>
+                    <a><i class="fa fa-star"></i></a>
+                    <a><i class="fa fa-ellipsis-h"></i></a>
+                </div>
+            </div>
+
+            <div class="tweet">
+                <div class="avatar">
+                    <a href="###" style="margin-right:10px">
+                        <img src="img/avatar-big.png" style="width: 48px; height: 48px; border-radius: 4px;"></img>
+                    </a>
+                </div>
+                <div class="content">
+                    <a><h1>Benjamin Shi</a> <small>@aiifabbf - <a>11 Apr 2011</a></small></h1>
+                    <p>Unfortunately, we've got another 8 exampapers...Why? I don't know and I don't wanna know...</p>
+                </div>
+                <div class="action-group"> 
+                    <a><i class="fa fa-reply"></i></a>
+                    <a><i class="fa fa-retweet"></i></a>
+                    <a><i class="fa fa-star"></i></a>
+                    <a><i class="fa fa-ellipsis-h"></i></a>
+                </div>
+            </div>
+
+            <div class="tweet">
+                <div class="avatar">
+                    <a href="###" style="margin-right:10px">
+                        <img src="img/avatar-big.png" style="width: 48px; height: 48px; border-radius: 4px;"></img>
+                    </a>
+                </div>
+                <div class="content">
+                    <a><h1>Benjamin Shi</a> <small>@aiifabbf - <a>11 Apr 2011</a></small></h1>
+                    <p>@PointerRoyden We've got 8 exampapers...For safety, i'll tweet with English.......</p>
+                </div>
+                <div class="action-group"> 
+                    <a><i class="fa fa-reply"></i></a>
+                    <a><i class="fa fa-retweet"></i></a>
+                    <a><i class="fa fa-star"></i></a>
+                    <a><i class="fa fa-ellipsis-h"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="frameRecommendations" style="width: 290px; height: 200px;">
+        </div>
+    </div>
+    <script>
+    var tweetTextarea = $("#frameTweeting textarea");
+    var actionGroup = $("#frameTweeting #actionGroup");
+    var wordCount = $("#frameTweeting #wordCount");
+    var modifying = false;
+    tweetTextarea.focus(
+        function()
+        {
+            if(modifying == true)
+            {
+                return;
+            }
+            modifying = true;
+            tweetTextarea.val("");
+            tweetTextarea.attr("placeholder", "What's happening?");
+            tweetTextarea.css("height", "82px");
+            tweetTextarea.css("overflow-y", "auto");
+            tweetTextarea.css("color", "black");
+            actionGroup.toggle();
+        });
+
+    tweetTextarea.blur(
+        function(event)
+        {
+            if(tweetTextarea.val() == "")
+            {
+                modifying = false;
+            }
+            if(modifying == true)
+            {
+                return;
+            }
+            if(event.target == $("#frameTweeting"))
+            {
+                return;
+            }
+            tweetTextarea.val("What's happening?");
+            tweetTextarea.attr("placeholder", "");
+            tweetTextarea.css("color", "#0084B4");
+            tweetTextarea.css("height", "32px");
+            tweetTextarea.css("overflow", "hidden");
+            actionGroup.toggle();
+        });    
+
+    tweetTextarea.change(
+        function()
+        {
+            modifying = true;
+            wordCount.text(140-tweetTextarea.val().length);
+        });
+
+    tweetTextarea.keypress(
+        function()
+        {
+            modifying = true;
+            wordCount.text(140-tweetTextarea.val().length);
+        });
+    </script>
+</body>
+
